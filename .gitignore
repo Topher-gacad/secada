@@ -1,0 +1,55 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.env/
+
+# Flask-related
+instance/
+*.log
+
+# Environment variables
+.env
+
+# MacOS
+.DS_Store
+
+# IDE/Editor-specific
+.vscode/
+.idea/
+
+# pytest
+.cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+
+# PyCharm
+.idea/
+
+# Flask-SQLAlchemy
+*.sqlite
+
+# Any other IDE specific folders (Example: Sublime Text, Visual Studio, etc.)
+.vscode/
+*.swp
+
+# Local configurations
+*.env
+
+# System files
+Thumbs.db
