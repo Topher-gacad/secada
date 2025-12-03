@@ -1,0 +1,43 @@
+name: Auto Release Creation
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on any tag push starting with 'v'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up GitHub CLI to interact with GitHub API
+      - name: Set up GitHub CLI
+        uses: cli/cli-action@v2
+
+      # Get the tag name
+      - name: Get tag name
+        id: tag_name
+        run: echo "TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
+
+      # Check if the tag is a major version (e.g., v1.x.x)
+      - name: Check if tag is a major version
+        run: |
+          VERSION=${{ env.TAG_NAME }}
+          MAJOR_VERSION=$(echo $VERSION | cut -d '.' -f 1 | sed 's/v//')
+          if [[ "$MAJOR_VERSION" -ge 1 && "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "This is a major version tag, creating a release."
+          else
+            echo "Not a major version tag, skipping release creation."
+            exit 0
+          fi
+
+      # Create a release on GitHub if it's a major version tag
+      - name: Create GitHub Release
+        run: |
+          gh auth login --with-token <<< "${{ secrets.GH_TOKEN }}"
+          gh release create v${{ env.TAG_NAME }} --title "Release ${{ env.TAG_NAME }}" --notes "Release for version ${{ env.TAG_NAME }}"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
