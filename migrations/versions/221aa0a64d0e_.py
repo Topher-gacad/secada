@@ -1,8 +1,8 @@
-"""Initial migrations: UserAuth, UserProfile, Department Models
+"""empty message
 
-Revision ID: 7d45af576411
+Revision ID: 221aa0a64d0e
 Revises: 
-Create Date: 2025-12-09 13:28:45.952692
+Create Date: 2025-12-09 14:29:31.448312
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7d45af576411'
+revision = '221aa0a64d0e'
 down_revision = None
 branch_labels = None
 depends_on = None

@@ -1,0 +1,31 @@
+diff --git a/app.py b/app.py
+index 1dd9d59..f11a32e 100644
+--- a/app.py
++++ b/app.py
+@@ -5,9 +5,13 @@ import os
+ app = Flask(__name__)
+ app.config.from_object(Config)
+ 
++@app.route("/login")
++def login():
++    return render_template("auth/login.html")
++
+ @app.route("/")
+ def index():
+-    return render_template("/auth/login.html")
++    return render_template("home/index.html")
+ 
+ if __name__ == "__main__":
+     PORT=os.getenv("PORT")
+diff --git a/requirements.txt b/requirements.txt
+index f30bc8d..8fd4ed2 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -2,6 +2,7 @@ blinker==1.9.0
+ click==8.3.1
+ colorama==0.4.6
+ Flask==3.1.2
++Flask-Login==0.6.3
+ itsdangerous==2.2.0
+ Jinja2==3.1.6
+ MarkupSafe==3.0.3
