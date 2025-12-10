@@ -15,8 +15,9 @@ def login():
     return render_template("auth/login.html")
 
 @app.route("/")
-def index():
-    return render_template("home/index.html")
+def home():
+    return render_template("/home/homepage.html")
+
 
 if __name__ == "__main__":
     PORT=os.getenv("PORT")
