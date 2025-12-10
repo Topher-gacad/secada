@@ -6,8 +6,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 @app.route("/")
-def index():
-    return render_template("/auth/login.html")
+def home():
+    return render_template("/home/homepage.html")
 
 if __name__ == "__main__":
     PORT=os.getenv("PORT")

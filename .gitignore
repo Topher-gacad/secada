@@ -54,5 +54,7 @@ dist/
 # System files
 Thumbs.db
 
-# Claude variables
+# AI Init variables
 CLAUDE.md
+AGENTS.md
+
