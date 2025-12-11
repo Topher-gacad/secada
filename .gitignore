@@ -58,3 +58,12 @@ Thumbs.db
 CLAUDE.md
 AGENTS.md
 
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tailwind CSS (DO NOT ignore output.css - it's needed for production)
+# static/css/output.css should be committed
+

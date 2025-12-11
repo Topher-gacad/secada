@@ -12,7 +12,7 @@ class Department(db.Model):
     updated_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
     # Relationship: One department has many user profiles
-    user_profile = db.relationship('UserProfile', back_populates='department', lazy='dynamic')
+    user_profiles = db.relationship('UserProfile', back_populates='department', lazy='dynamic')
 
     def __repr__(self):
         return f'<Department {self.code}: {self.name}>'

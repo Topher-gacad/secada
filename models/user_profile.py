@@ -10,7 +10,7 @@ class UserProfile(db.Model):
     user_auth = db.relationship('UserAuth', back_populates='user_profile')
 
     department_id = db.Column(db.Integer, db.ForeignKey('departments.id'), nullable=True)
-    department = db.relationship('Department', back_populates='user_profile')
+    department = db.relationship('Department', back_populates='user_profiles')
 
     fname = db.Column(db.String(255))
     lname = db.Column(db.String(255))

@@ -1,0 +1,21 @@
+{
+  "name": "secada",
+  "version": "1.0.0",
+  "description": "Flask web application with Tailwind CSS and DaisyUI",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css",
+    "watch:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "build": "npm run build:css -- --minify"
+  },
+  "keywords": ["tailwindcss", "daisyui", "flask"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.2"
+  }
+}
